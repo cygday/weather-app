@@ -6,7 +6,7 @@ pipeline {
 	stages {
 		stage('Clone Repository') {
 		  steps {
-		   git url: 'https://your-git-repo-url.git' // << replace with your repo
+		   git url: 'https://github.com/cygday/simple-java-from-chatgpt.git' // << replace with your repo
 		  }
 		}
 		stage('Compile Java Code') {
@@ -20,8 +20,8 @@ pipeline {
 		}
 		stage('Run SonarQube Analysis') {
 		  steps {
-			withSonarQubeEnv('MySonarServer') { // Change 'MySonarServer' if your SonarQube
-	server name is different
+			withSonarQubeEnv('sonarqube') { // Change 'MySonarSer
+//ver' if your SonarQube server name is different
 			 sh '''
 			   ${SONAR_SCANNER}/bin/sonar-scanner \
 			   -Dsonar.projectKey=simple-java-app \
